@@ -80,10 +80,20 @@ WSGI_APPLICATION = 'documents_guide.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'documents_db',  # MySQL'deki veritabanı adı
+        'USER': 'root',          # MySQL Workbench’te kullanılan kullanıcı adı
+        'PASSWORD': '',          # Eğer şifre belirlediysen buraya yaz, yoksa boş bırak
+        'HOST': '127.0.0.1',     # MySQL'in çalıştığı adres (localhost)
+        'PORT': '3306',          # MySQL varsayılan portu
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        }
     }
 }
+
+
+
 
 
 # Password validation
