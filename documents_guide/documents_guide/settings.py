@@ -74,8 +74,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'documents_db',  # MySQL'deki veritabanı adı
-        'USER': 'root',          # MySQL Workbench’te kullanılan kullanıcı adı
-        'PASSWORD': '',          # Eğer şifre belirlediysen buraya yaz, yoksa boş bırak
+        'USER': 'root',          # MySQL kullanıcı adı
+        'PASSWORD': '1234',      # MySQL şifresi
         'HOST': '127.0.0.1',     # MySQL'in çalıştığı adres (localhost)
         'PORT': '3306',          # MySQL varsayılan portu
         'OPTIONS': {
