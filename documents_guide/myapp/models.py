@@ -1,20 +1,27 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 
-# Şehir Modeli
+# Önce City ve District modellerini tanımlayın
 class City(models.Model):
-    name = models.CharField(max_length=255)  # Şehir adı
-
+    name = models.CharField(max_length=100)
+    
     def __str__(self):
         return self.name
 
-# İlçe Modeli
 class District(models.Model):
-    name = models.CharField(max_length=255)  # İlçe adı
-    city = models.ForeignKey(City, on_delete=models.CASCADE)  # İlgili şehir
-
+    name = models.CharField(max_length=100)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='districts')
+    
     def __str__(self):
-        return f"{self.name}, {self.city.name}"
+        return self.name
+
+# Sonra CustomUser modelini tanımlayın
+class CustomUser(AbstractUser):
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True)  # null ve blank=True ekledim
+    district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, blank=True)  # null ve blank=True ekledim
+    
+    def __str__(self):
+        return self.username
 
 # Kurum Modeli
 class Institution(models.Model):
@@ -40,10 +47,3 @@ class Process(models.Model):
     def __str__(self):
         return self.name
 
-# Özelleştirilmiş Kullanıcı Modeli
-class CustomUser(AbstractUser):
-    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)  # Kullanıcının şehir bilgisi
-    district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True)  # Kullanıcının ilçe bilgisi
-
-    def __str__(self):
-        return self.username

@@ -73,6 +73,7 @@ WSGI_APPLICATION = 'documents_guide.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'documents_db',  # MySQL'deki veritabanı adı
         'USER': 'root',          # MySQL kullanıcı adı
@@ -82,6 +83,14 @@ DATABASES = {
         'OPTIONS': {
             'charset': 'utf8mb4'
         }
+=======
+        'ENGINE': 'django.db.backends.mysql',  # MySQL motoru kullanıyoruz
+        'NAME': 'documents_db',              # Veritabanı adını buraya yaz
+        'USER': 'root',               # MySQL kullanıcı adını buraya yaz
+        'PASSWORD': '1234',                   # MySQL şifreni buraya yaz
+        'HOST': 'localhost',                   # Eğer yerel makinedeyse localhost, başka bir sunucu ise IP adresi
+        'PORT': '3306',                        # MySQL'in varsayılan portu (genellikle 3306)
+>>>>>>> 54fce7344d1ef9a60053694179fd524b2c086c20
     }
 }
 
