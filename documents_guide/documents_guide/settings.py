@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'categories'
+    'categories',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -123,4 +124,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Custom User Model
-AUTH_USER_MODEL = 'myapp.CustomUser'  # 'myapp' uygulamanızın adı olmalı
+AUTH_USER_MODEL = 'accounts.UserProfile'

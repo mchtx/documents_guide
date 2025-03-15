@@ -29,4 +29,5 @@ urlpatterns += [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls')),  # myapp uygulamasının URL'leri
     path('categories/', include('categories.urls')),  # categories uygulamasının URL'leri
+    path('accounts/', include('accounts.urls')),
 ]
